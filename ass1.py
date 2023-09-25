@@ -49,20 +49,20 @@ while current:
                   class_="styles_reviewHeader__iU9Px"
             )
             if review_count >= 10:
-                 current = False
-                 break
+                current = False
+                break
             elif para:
-                  paras = para.text
-                  data_time.append(time_tag['datetime'])
-                  data_para.append(paras)
-                  data_ratingvalue.append(ratingvalue['data-service-review-rating'])
-                  review_count += 1
+                paras = para.text
+                data_time.append(time_tag['datetime'])
+                data_para.append(paras)
+                data_ratingvalue.append(ratingvalue['data-service-review-rating'])
+                review_count += 1
             else:
-                  paras = None
-                  data_time.append(time_tag['datetime'])
-                  data_para.append(paras)
-                  data_ratingvalue.append(ratingvalue['data-service-review-rating'])
-                  review_count += 1
+                paras = None
+                data_time.append(time_tag['datetime'])
+                data_para.append(paras)
+                data_ratingvalue.append(ratingvalue['data-service-review-rating'])
+                review_count += 1
 
         if next_page[0].get('href', ''):
             next_url = page + next_page[0]['href']
