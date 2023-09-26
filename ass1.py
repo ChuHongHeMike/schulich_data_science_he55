@@ -18,9 +18,10 @@ N = int(item.contents[0].replace(',',''))
 print(N)
 
 review_count = 0 
+
 current = 'https://ca.trustpilot.com/review/equitablebank.ca'
 page = 'https://ca.trustpilot.com'
-All_page=[current]
+
 name = 'aa'
 with open(file_path, 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file, delimiter=',')
