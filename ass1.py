@@ -1,8 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import pandas as pd
-import os
 
 file_path = 'output.csv'
 # get the htlm
@@ -19,9 +17,6 @@ attrs={'class':'typography_body-l__KUYFJ typography_appearance-default__AAY17'}
 N = int(item.contents[0].replace(',',''))
 print(N)
 
-data_para = []
-data_time = []
-data_ratingvalue=[]
 review_count = 0 
 current = 'https://ca.trustpilot.com/review/equitablebank.ca'
 page = 'https://ca.trustpilot.com'
@@ -57,16 +52,10 @@ with open(file_path, 'w', newline='') as csv_file:
                     break
                 elif para:
                     paras = para.text
-                    data_time.append(time_tag['datetime'])
-                    data_para.append(paras)
-                    data_ratingvalue.append(ratingvalue['data-service-review-rating'])
                     csv_writer.writerow([name, time_tag['datetime'], ratingvalue['data-service-review-rating'], paras])
                     review_count += 1
                 else:
                     paras = None
-                    data_time.append(time_tag['datetime'])
-                    data_para.append(paras)
-                    data_ratingvalue.append(ratingvalue['data-service-review-rating'])
                     csv_writer.writerow([name, time_tag['datetime'], ratingvalue['data-service-review-rating'], paras])
                     review_count += 1
 
